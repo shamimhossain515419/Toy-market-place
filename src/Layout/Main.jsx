@@ -3,7 +3,7 @@ import Navber from "../Component/Shared/Navber";
 
 
 const Main = () => {
-     return (
+      return (
           <div>
                <Navber></Navber>
                <Outlet></Outlet>

@@ -1,15 +1,41 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { AuthContext,  } from "../AuthProvider/Authprovider";
+import { getAuth, updateProfile } from "firebase/auth";
+import app from "../Firebaseconfig/Firebase.confige";
 
 
 export default function Ragister() {
-
+ const {singup}=useContext(AuthContext);
+const auth=getAuth(app);
+     const handlesubmit=(event)=>{
+          event.preventDefault();
+          const from=event.target;
+          const name=from.name.value;
+          const password=from.password.value;
+          const email=from.email.value;
+          const photo=from.photo.value;
+          singup(email,password).then(result=>{
+                console.log(result.user);
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: photo
+                  }).then(() => {
+                    <Navigate to={'/'}></Navigate>
+                  }).catch((error) => {
+                    console.log(error);
+                  });
+          }).catch(error=>{
+               console.log(error);
+          })
+           
+     }
      return (
-         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+         <div className="relative my-6 flex flex-col justify-center min-h-screen overflow-hidden">
              <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
                  <h1 className="text-3xl font-semibold text-center text-[#0f01ce] underline">
                     Sign Up
                  </h1>
-                 <form className="mt-6">
+                 <form onSubmit={handlesubmit} className="mt-6">
 
                      <div className="mb-2">
                          <label
