@@ -77,23 +77,20 @@ export default function Ragister() {
                          </button>
                      </div>
                  </form>
+
                  <div className="relative flex items-center justify-center w-full mt-6 border border-t">
                      <div className="absolute px-5 bg-white">Or</div>
                  </div>
+
                  <div className="flex mt-4 gap-x-2">
                      <button
                          type="button"
-                         className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
+                         className="flex items-center justify-center w-full p-2 border border-[#0f01ce] rounded-md focus:ring-2 focus:ring-offset-1 "
                      >
-                         <svg
-                             xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 32 32"
-                             className="w-5 h-5 fill-current"
-                         >
-                             <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
-                         </svg>
+                         <svg className="h-8 w-8" viewBox="0 0 20 20"  preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M19.6 10.23c0-.82-.1-1.42-.25-2.05H10v3.72h5.5c-.15.96-.74 2.31-2.04 3.22v2.45h3.16c1.89-1.73 2.98-4.3 2.98-7.34z" fill="#4285F4"></path><path d="M13.46 15.13c-.83.59-1.96 1-3.46 1-2.64 0-4.88-1.74-5.68-4.15H1.07v2.52C2.72 17.75 6.09 20 10 20c2.7 0 4.96-.89 6.62-2.42l-3.16-2.45z" fill="#34A853"></path><path d="M3.99 10c0-.69.12-1.35.32-1.97V5.51H1.07A9.973 9.973 0 000 10c0 1.61.39 3.14 1.07 4.49l3.24-2.52c-.2-.62-.32-1.28-.32-1.97z" fill="#FBBC05"></path><path d="M10 3.88c1.88 0 3.13.81 3.85 1.48l2.84-2.76C14.96.99 12.7 0 10 0 6.09 0 2.72 2.25 1.07 5.51l3.24 2.52C5.12 5.62 7.36 3.88 10 3.88z" fill="#EA4335"></path></svg>
+
                      </button>
-                     <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
+                     <button className="flex items-center justify-center w-full p-2 border border-[#0f01ce]   rounded-md focus:ring-2 focus:ring-offset-1 ">
                          <svg
                              xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 32 32"
@@ -102,7 +99,7 @@ export default function Ragister() {
                              <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
                          </svg>
                      </button>
-                     <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
+                     <button className="flex items-center justify-center w-full p-2 border border-[#0f01ce]   rounded-md focus:ring-2 focus:ring-offset-1 ">
                          <svg
                              xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 32 32"
@@ -112,6 +109,7 @@ export default function Ragister() {
                          </svg>
                      </button>
                  </div>
+
                  <p className="mt-8 text-bs   font-medium text-center text-gray-700">
                      {" "}
                      Don not have an account?{" "}
@@ -123,6 +121,7 @@ export default function Ragister() {
                      </Link>
                  </p>
              </div>
-         </div>
+
+   </div>
      );
  }
