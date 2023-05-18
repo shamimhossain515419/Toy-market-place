@@ -6,7 +6,7 @@ import app from "../Firebaseconfig/Firebase.confige";
 
 
 export default function Ragister() {
- const {singup}=useContext(AuthContext);
+ const {singup,GoogleSing}=useContext(AuthContext);
 const auth=getAuth(app);
      const handlesubmit=(event)=>{
           event.preventDefault();
@@ -29,6 +29,19 @@ const auth=getAuth(app);
           })
            
      }
+
+
+     const handeleGoolesng=()=>{
+        GoogleSing().then(result=>{
+              console.log(result.user);
+              if(result.user.email ){
+                  <Navigate to={'/'}></Navigate>  
+              }
+              
+        }).catch(error=>{
+              console.log(error);
+        })
+   }
      return (
          <div className="relative my-6 flex flex-col justify-center min-h-screen overflow-hidden">
              <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
@@ -109,7 +122,7 @@ const auth=getAuth(app);
                  </div>
 
                  <div className="flex mt-4 gap-x-2">
-                     <button
+                     <button onClick={handeleGoolesng}
                          type="button"
                          className="flex items-center justify-center w-full p-2 border border-[#0f01ce] rounded-md focus:ring-2 focus:ring-offset-1 "
                      >

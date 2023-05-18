@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/Authprovider";
 
 
 export default function Login() {
-     const { singin } = useContext(AuthContext)
+     const { singin ,GoogleSing} = useContext(AuthContext)
      const handlesubmit = (event) => {
           event.preventDefault();
           const from = event.target;
@@ -21,6 +21,17 @@ export default function Login() {
 
      }
 
+     const handeleGoolesng=()=>{
+          GoogleSing().then(result=>{
+                console.log(result.user);
+                if(result.user.email ){
+                    <Navigate to={'/'}></Navigate>  
+                }
+                
+          }).catch(error=>{
+                console.log(error);
+          })
+     }
      return (
           <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
                <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
@@ -72,7 +83,7 @@ export default function Login() {
                          <div className="absolute px-5 bg-white">Or</div>
                     </div>
                     <div className="flex mt-4 gap-x-2">
-                         <button
+                         <button onClick={handeleGoolesng}
                               type="button"
                               className="flex items-center justify-center w-full p-2 border  rounded-md focus:ring-2 border-[#0f01ce]"
                          >

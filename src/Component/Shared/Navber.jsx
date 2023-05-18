@@ -46,7 +46,7 @@ const handlogout=()=>{
 
                               </div> : <div className=" md:flex gap-3 items-center ">
                                    <FaUser className=" block m-3"></FaUser>
-                                   <Link className="text-xl  block font-semibold m-3  bg-blue-600 py-1 px-4  text-white rounded-md  "> Login</Link>
+                                   <Link to={'/login'} className="text-xl  block font-semibold m-3  bg-blue-600 py-1 px-4  text-white rounded-md  "> Login</Link>
                               </div>
                               }
                          </div>

@@ -1,0 +1,103 @@
+[
+     {
+       "name": "Speed Racer",
+       "category":"sportscar",
+       "price": 29.99,
+       "image": "https://img.freepik.com/free-vector/cartoon-bumper-car-white-background_1308-107878.jpg?size=626&ext=jpg&ga=GA1.2.824354190.1681013433&semt=ais",
+       "description": "Experience high-speed racing action with the Speed Racer toy car. It features sleek aerodynamic design and real working headlights.",
+       "rating": 4.5
+     },
+     {
+       "name": "Off-Road King",
+       "price": 39.99,
+       "category":"sportscar",
+       "image": "https://img.freepik.com/free-vector/cartoon-bumper-car-white-background_1308-107878.jpg?size=626&ext=jpg&ga=GA1.2.824354190.1681013433&semt=ais",
+       "description": "Conquer any terrain with the Off-Road King toy car. Its rugged tires and powerful motor provide excellent off-road performance.",
+       "rating": 4.2
+     },
+     {
+       "name": "Drift Master",
+       "category":"sportscar",
+       "price": 34.99,
+       "image": "https://img.freepik.com/free-vector/yellow-sports-car_1308-96215.jpg?size=626&ext=jpg&ga=GA1.2.824354190.1681013433&semt=ais",
+       "description": "Master the art of drifting with the Drift Master toy car. It features a drift mode and adjustable suspension for precise control.",
+       "rating": 4.8
+     },
+     {
+       "name": "Monster Crusher",
+       "category":"sportscar",
+       "price": 49.99,
+       "image": "https://img.freepik.com/free-vector/yellow-sports-car_1308-96215.jpg?size=626&ext=jpg&ga=GA1.2.824354190.1681013433&semt=ais",
+       "description": "Crush obstacles with the Monster Crusher toy car. Its massive wheels and powerful engine make it unstoppable on any terrain.",
+       "rating": 4.6
+     },
+
+     {
+          "name": "Big Hauler",
+          "price": 39.99,
+          "category":"truck",
+           "image": "https://img.freepik.com/free-photo/kindergarten-concept-with-wooden-blocks-kid-toys-wooden-grungy-background-side-view_176474-7732.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais",
+          "description": "Transport heavy loads with ease using the Big Hauler toy truck. It features a spacious bed and sturdy construction for maximum hauling capacity.",
+          "rating": 4.4
+        },
+        {
+          "name": "Mega Monster",
+          "category":"truck",
+
+          "price": 49.99,
+          "image": "https://img.freepik.com/free-vector/christmas-toy-collection-flat-design_23-2148750493.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais",
+          "description": "Unleash the power of the Mega Monster toy truck. Its oversized wheels and powerful motor make it capable of conquering any obstacle.",
+          "rating": 4.7
+        },
+        {
+          "name": "Extreme Off-Roader",
+          "price": 59.99,
+          "category":"truck",
+
+          "image": "https://img.freepik.com/free-photo/closeup-shot-small-toy-car-wooden-train-track_181624-32510.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais",
+          "description": "Experience extreme off-road adventures with the Extreme Off-Roader toy truck. Its advanced suspension system and all-terrain tires provide excellent performance.",
+          "rating": 4.9
+        },
+        {
+          "name": "Rock Crawler",
+          "price": 44.99,
+          "category":"truck",
+
+          "image": "https://img.freepik.com/premium-photo/dump-track-toy-loaded-with-blocks_470606-617.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais",
+          "description": "Conquer rocky terrains like a pro with the Rock Crawler toy truck. Its articulated suspension and high-torque motor ensure superior crawling capabilities.",
+          "rating": 4.6
+        },
+   
+        {
+          "name": "Micro Speedster",
+          "price": 9.99,
+          "image": "https://img.freepik.com/premium-photo/self-driving-tour-concept-car-model-destination_1205-2701.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais",
+          "description": "Zoom around with the Micro Speedster mini toy car. Its compact size makes it perfect for indoor racing and quick maneuvers.",
+          "rating": 4.2,
+          "category": "Mini"
+        },
+        {
+          "name": "Pocket Racer",
+          "price": 12.99,
+          "image": "https://img.freepik.com/premium-photo/closeup-child-hand-playing-with-toy-car-hand-little-kid-pushing-plastic-toy-car-whi_370028-7034.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais",
+          "description": "Take the Pocket Racer mini toy car wherever you go. It easily fits in your pocket and provides thrilling racing action on a small scale.",
+          "rating": 4.5,
+          "category": "Mini"
+        },
+        {
+          "name": "Tiny Turbo",
+          "price": 7.99,
+          "image": "https://img.freepik.com/free-vector/coloured-cars-collection_1196-49.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais",
+          "description": "Experience big fun in a tiny package with the Tiny Turbo mini toy car. It may be small, but it packs a punch with its high-speed capabilities.",
+          "rating": 4.0,
+          "category": "Mini"
+        },
+        {
+          "name": "Nano Nitro",
+          "price": 14.99,
+          "image": "https://img.freepik.com/premium-photo/child-playing-with-car-close-white-background_427957-279.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais",
+          "description": "Unleash the power of the Nano Nitro mini toy car. Its supercharged engine and ultra-responsive controls provide an adrenaline-pumping experience.",
+          "rating": 4.7,
+          "category": "Mini"
+        }
+   ]
