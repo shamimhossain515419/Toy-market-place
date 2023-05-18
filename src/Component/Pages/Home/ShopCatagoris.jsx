@@ -17,7 +17,7 @@ const ShopCatagoris = () => {
      if (seletpage == 0) {
           setSeletpage("sportscar")
      }
-     console.log(shopdata);
+     // console.log(shopdata);
      useEffect(() => {
 
           async function fetchData() {

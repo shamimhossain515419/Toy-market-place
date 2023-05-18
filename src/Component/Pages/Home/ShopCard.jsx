@@ -1,9 +1,20 @@
+import { useContext } from "react";
 import { FaArrowRight, FaRegHandPointRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Rating from "react-rating";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/Authprovider";
+import Swal from "sweetalert2";
 
 
 const ShopCard = ({showcard}) => {
+     const {user}=useContext(AuthContext)
+        
+       const handlePriveteRoute=()=>{
+          if( !user?.email){
+               Swal.fire('You have to log in first to view details')
+          }
+         }
+      
      const {name,price, _id ,image,description,rating,category}=showcard;
      return (
           <div className=" m-2 p-1  shadow-md   rounded-md ">
@@ -29,10 +40,10 @@ const ShopCard = ({showcard}) => {
                                              placeholderSymbol={<FaStar className=' m-1 text-[#ece800]'></FaStar>}
                                              fullSymbol={<FaStarHalfAlt className=' m-1 text-[#ece800]'></FaStarHalfAlt>}
                                         />
-                                        <small className=' text-2xl font-semibold '> Rating: 3.4 </small>
+                                        <small className=' text-2xl font-semibold '> Rating: {rating} </small>
                                    </div>
 
-                                   <button className='  bg-blue-600 text-2xl font-semibold text-white text-center py-1 px-3 rounded-lg my-2'> <Link to={`/shopdetils/${_id}`}> View Details  <FaArrowRight className=' inline-block mx-1'></FaArrowRight> </Link>  </button>
+                                   <button  className=' bg-blue-600 text-2xl font-semibold text-white text-center py-1 px-3 rounded-lg my-2'> <Link onClick={handlePriveteRoute} to={`/shopdetils/${_id}`}> View Details  <FaArrowRight className=' inline-block mx-1'></FaArrowRight> </Link>  </button>
                               </div>
 
                          </div>

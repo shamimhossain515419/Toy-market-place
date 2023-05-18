@@ -6,7 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const ShopDetils = () => {
      const loadData = useLoaderData();
      const { name, price,  image, description, rating, category } = loadData;
-     console.log(loadData);
+
      return (
           <div>
                <div className=" relative  w-full flex justify-center items-baseline ">

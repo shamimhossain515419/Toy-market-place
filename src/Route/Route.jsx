@@ -7,6 +7,7 @@ import ShopDetils from "../Component/Pages/Home/ShopDetils";
 import PrivetRoute from "./PrivetRoute";
 import AddToy from "../PrivateToy/AddToy";
 import AllToy from "../Component/Pages/Home/AllToy";
+import Mytoy from "../PrivateToy/Mytoy";
 
 
 
@@ -35,6 +36,11 @@ const router  = createBrowserRouter([
                     path:'/alltoys',
                     element:<AllToy></AllToy>,
                     loader:()=>fetch('http://localhost:5000/alltoy')
+                    },
+                    {
+                    path:'/mytoy',
+                    element: <PrivetRoute><Mytoy></Mytoy></PrivetRoute> ,
+                    
                     },
                     {
                     path:'/shopdetils/:id',
