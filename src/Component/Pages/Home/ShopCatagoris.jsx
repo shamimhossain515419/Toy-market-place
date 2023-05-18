@@ -1,13 +1,41 @@
-import { useState } from 'react';
-import { FaArrowRight, FaRegHandPointRight, FaStar, FaStarHalfAlt } from 'react-icons/fa';
-import Rating from 'react-rating';
+import { useEffect, useState } from 'react';
+// import { FaArrowRight, FaRegHandPointRight, FaStar, FaStarHalfAlt } from 'react-icons/fa';
+// import Rating from 'react-rating';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import ShopCard from './ShopCard';
+
 
 const ShopCatagoris = () => {
      const [seletpage, setSeletpage] = useState(0)
+     const [shopdata, serShopdata] = useState([]);
+     if (seletpage == 1) {
+          setSeletpage("truck")
+     }
 
      console.log(seletpage);
+     if (seletpage == 0) {
+          setSeletpage("sportscar")
+     }
+     console.log(shopdata);
+     useEffect(() => {
+
+          async function fetchData() {
+               try {
+                    const response = await fetch(`http://localhost:5000/shop/${seletpage}`);
+                    const data = await response.json();
+                    serShopdata(data);
+               } catch (error) {
+                    console.error(error);
+                    // Handle error case
+               }
+          }
+          fetchData()
+     }, [seletpage])
+
+     if (seletpage == 2) {
+          setSeletpage("Mini")
+     }
      return (
           <div>
                <h1 className=' text-5xl font-bold text-center mt-6 text-blue-500'> Shop to Category </h1>
@@ -22,45 +50,21 @@ const ShopCatagoris = () => {
                     </TabList>
 
                     <TabPanel>
+                         <div className='  my-3    md:grid grid-cols-2 gap-3'>
+                              {shopdata?.map(show => <ShopCard key={show._id} showcard={show}></ShopCard>)}
+                         </div>
 
-                         <div style={{
-                              boxShadow: '1px 2px 9px #fff',
-                              padding: '1em'
-                         }} className=' p-2 items-center   mx-auto md:grid grid-cols-3  gap-5 my-4 '>
-                              <div>
-                                   <img className='   h-80   object-contain w-full' src="https://img.freepik.com/premium-vector/race-icons-set-cartoon-style_96318-712.jpg?size=626&ext=jpg&ga=GA1.1.824354190.1681013433&semt=ais" alt="" /></div>
-                              <div className=' space-y-3 '>
-                                   <h1 className='text-3xl font-semibold text-blue-600 '> Speed Racer</h1>
-                                   <p className=' text-lg '>Experience high-speed racing action with the Speed Racer toy car. It features sleek aerodynamic design and real working headlights. </p>
-                                  
-                                   <div className=' text-2xl  flex  items-center  gap-2' >
-                                        <FaRegHandPointRight className=' text-blue-600'></FaRegHandPointRight>
-                                        <p className=' text-2xl font-semibold '>Category: Sports </p>
-                                   </div>
-                                   <div className=' text-2xl  flex  items-center  gap-2' >
-                                        <FaRegHandPointRight className=' text-blue-600'></FaRegHandPointRight>
-                                        <p className=' text-2xl font-semibold '>Price: $34 </p>
-                                   </div>
-                                   <div className=' md:flex justify-between gap-1  items-center'>
-                                        <Rating
-                                             placeholderRating={3.5}
-                                             emptySymbol={<FaStar className='m-1  text-[#ece800]'></FaStar>}
-                                             placeholderSymbol={<FaStar className=' m-1 text-[#ece800]'></FaStar>}
-                                             fullSymbol={<FaStarHalfAlt className=' m-1 text-[#ece800]'></FaStarHalfAlt>}
-                                        />
-                                        <small className=' text-2xl font-semibold '> Rating: 3.4 </small>
-                                   </div>
 
-                                   <button className='  bg-blue-600 text-2xl font-semibold text-white text-center py-1 px-3 rounded-lg my-2'> View Details  <FaArrowRight className=' inline-block mx-1'></FaArrowRight></button>
-                              </div>
-
+                    </TabPanel>
+                    <TabPanel>
+                         <div className='  my-3  md:grid grid-cols-2 gap-3'>
+                              {shopdata?.map(show => <ShopCard key={show._id} showcard={show}></ShopCard>)}
                          </div>
                     </TabPanel>
                     <TabPanel>
-                         <h2 className=' text-3xl '>Any content 2 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi sint, temporibus nemo, ut cupiditate quibusdam ab ad corporis laboriosam consequatur ex mollitia distinctio est earum sequi quaerat harum nulla qui rerum nesciunt quam. Aliquid, eaque dolores, dolore rerum quas alias minus in quo fugiat cumque nisi itaque ut nulla facilis placeat modi vitae libero iure hic. Incidunt ex, aperiam minima voluptatibus sint numquam ad iusto expedita odio natus placeat, nisi officiis cumque est facere ab blanditiis quia minus at modi. Pariatur animi architecto voluptatem. Exercitationem, ab quibusdam? Nesciunt illum delectus quae ratione expedita! Enim veritatis qui fuga impedit eius fugiat.</h2>
-                    </TabPanel>
-                    <TabPanel>
-                         <h2 className=' text-3xl '>Any shamim content 2 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi sint, temporibus nemo, ut cupiditate quibusdam ab ad corporis laboriosam consequatur ex mollitia distinctio est earum sequi quaerat harum nulla qui rerum nesciunt quam. Aliquid, eaque dolores, dolore rerum quas alias minus in quo fugiat cumque nisi itaque ut nulla facilis placeat modi vitae libero iure hic. Incidunt ex, aperiam minima voluptatibus sint numquam ad iusto expedita odio natus placeat, nisi officiis cumque est facere ab blanditiis quia minus at modi. Pariatur animi architecto voluptatem. Exercitationem, ab quibusdam? Nesciunt illum delectus quae ratione expedita! Enim veritatis qui fuga impedit eius fugiat.</h2>
+                         <div className=' my-3  md:grid grid-cols-2 gap-3'>
+                              {shopdata?.map(show => <ShopCard key={show._id} showcard={show}></ShopCard>)}
+                         </div>
                     </TabPanel>
                </Tabs>
           </div>
