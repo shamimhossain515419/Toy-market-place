@@ -1,19 +1,26 @@
 import { useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/Authprovider";
 
 
 export default function Login() {
      const { singin ,GoogleSing} = useContext(AuthContext)
+     const navigate=useNavigate();
+     const location =useLocation();
+   
+    const from=location.state?.from?.pathname || '/'
      const handlesubmit = (event) => {
           event.preventDefault();
-          const from = event.target;
+          const form = event.target;
 
-          const password = from.password.value;
-          const email = from.email.value;
+          const password = form.password.value;
+          const email = form.email.value;
 
           singin(email, password).then(result => {
                console.log(result.user);
+                navigate(from,  {replace: true} )
+                form.reset();
+               
 
           }).catch(error => {
                console.log(error);
@@ -24,9 +31,7 @@ export default function Login() {
      const handeleGoolesng=()=>{
           GoogleSing().then(result=>{
                 console.log(result.user);
-                if(result.user.email ){
-                    <Navigate to={'/'}></Navigate>  
-                }
+                navigate(from,  {replace: true} )
                 
           }).catch(error=>{
                 console.log(error);

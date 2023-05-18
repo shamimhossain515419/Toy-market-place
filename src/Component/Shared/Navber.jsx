@@ -37,7 +37,7 @@ const handlogout=()=>{
                          {loading==true ? "" : <div>
                               {user ? <div className=" relative md:flex gap-3 ">
                                    <NavLink className={({ isActive }) => isActive ? " text-xl  block font-semibold m-3  text-blue-600" : " text-xl  font-semibold m-3  block"} >My Toy</NavLink>
-                                   <NavLink className={({ isActive }) => isActive ? " text-xl  block  font-semibold m-3  text-blue-600" : " text-xl  font-semibold m-3  block "} >Add A Toy</NavLink>
+                                   <NavLink to={'/addtoy'} className={({ isActive }) => isActive ? " text-xl  block  font-semibold m-3  text-blue-600" : " text-xl  font-semibold m-3  block "} >Add A Toy</NavLink>
                                    <img onClick={()=>setlogout(!logout)} className="  cursor-pointer relative h-10 w-10 rounded-full m-2" src={user.photoURL
                                    } alt="" />
                                     <div className={`  absolute  top-12  -right-3  opacity-100 z-50 bg-white p-2 rounded shadow-lg  ${logout ?  " hidden": 'block'}`}>
