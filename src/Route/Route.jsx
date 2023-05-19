@@ -44,7 +44,7 @@ const router  = createBrowserRouter([
                     {
                     path:'/alltoys',
                     element:<AllToy></AllToy>,
-                    loader:()=>fetch('http://localhost:5000/totalCar')
+                    loader:()=>fetch('https://toy-marketplace-server.vercel.app/totalCar')
                     },
                     {
                     path:'/mytoy',

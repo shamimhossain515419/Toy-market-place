@@ -1,26 +1,35 @@
 import { useContext, useEffect, useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaSistrix } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/Authprovider";
 import Swal from "sweetalert2";
 
 
 const AllToy = () => {
+
      const { totalCar } = useLoaderData();
      const { user } = useContext(AuthContext)
      const [alltoy, setalltoy] = useState();
      const [limit, setlimit] = useState(20);
 
+     const [searchTerm, setSearchTerm] = useState('');
 
-
-
+     const handleSearchChange = (event) => {
+       setSearchTerm(event.target.value);
+       }
+    
      useEffect(() => {
-          fetch(`http://localhost:5000/shop?&limit=${limit}`)
+          fetch(`https://toy-marketplace-server.vercel.app/shop?&limit=${limit}`)
                .then(res => res.json())
                .then(data => setalltoy(data))
      }, [limit])
 
 
+const handleSearch=()=>{
+     fetch(`http://localhost:5000/toyCar/${searchTerm}`)
+     .then(res => res.json())
+     .then(data => setalltoy(data))
+ }
 
      const handlePriveteRoute = () => {
           if (!user?.email) {
@@ -33,6 +42,20 @@ const AllToy = () => {
           <div>
                <h1 className=" text-4xl font-bold  text-blue-500 text-center my-4"> All Toy </h1>
                <div>
+                    <div>
+                         <div className=" text-center">
+                              <input
+                                   type="text"
+                                   placeholder="Search"
+                                     
+                                   value={searchTerm}
+                                   onChange={handleSearchChange}
+                                   className="px-4 py-2 w-1/3 mx-auto my-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                              />
+                              <button onClick={handleSearch} className=" text-xl font-bold bg-blue-500 py-1 mx-2 cursor-pointer px-3 rounded-md " > Search</button> 
+                         </div>
+
+                    </div>
                     <div className=" w-full">
                          <table className="table w-full">
                               {/* head */}
@@ -85,7 +108,7 @@ const AllToy = () => {
                     </div>
 
                     <div className=" text-center block mx-auto">
-                       { alltoy &&  alltoy?.length >=20 ? <button onClick={()=>setlimit(totalCar)} className={ `text-white ${ alltoy  && alltoy.length ==totalCar ? "hidden" : "block"} bg-blue-600   hover:bg-blue-400 px-3 py-1 rounded-md text-2xl font-semibold `} > See More</button > : "" }
+                         {alltoy && alltoy?.length >= 20 ? <button onClick={() => setlimit(totalCar)} className={`text-white ${alltoy && alltoy.length == totalCar ? "hidden" : "block"} bg-blue-600   hover:bg-blue-400 px-3 py-1 rounded-md text-2xl font-semibold `} > See More</button > : ""}
                     </div>
                </div>
 
