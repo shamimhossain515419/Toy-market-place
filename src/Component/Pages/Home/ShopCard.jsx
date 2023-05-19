@@ -15,7 +15,7 @@ const ShopCard = ({showcard}) => {
           }
          }
       
-     const {name,price, _id ,image,description,rating,category}=showcard;
+     const {name,price, _id ,image,sellername,rating,category}=showcard;
      return (
           <div className=" m-2 p-1  shadow-md   rounded-md ">
                <div className=' p-2 items-center   mx-auto md:grid grid-cols-2  gap-5 my-4 '>
@@ -23,7 +23,7 @@ const ShopCard = ({showcard}) => {
                                    <img className='   h-80   object-contain w-full' src={image} alt="" /></div>
                               <div className=' space-y-3 '>
                                    <h1 className='text-3xl font-semibold text-blue-600 '> {name}</h1>
-                                   {/* <p className=' text-lg '>{description}</p> */}
+                                   <p className=' text-lg '>SellerName:  {sellername}</p>
 
                                    <div className=' text-2xl  flex  items-center  gap-2' >
                                         <FaRegHandPointRight className=' text-blue-600'></FaRegHandPointRight>

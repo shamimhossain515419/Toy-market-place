@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/Authprovider";
@@ -6,19 +6,34 @@ import Swal from "sweetalert2";
 
 
 const AllToy = () => {
-     const alltoy = useLoaderData();
-     const {user}=useContext(AuthContext)
-        
-     const handlePriveteRoute=()=>{
-        if( !user?.email){
-             Swal.fire('You have to log in first to view details')
-        }
-       }
+     const { totalCar } = useLoaderData();
+     const { user } = useContext(AuthContext)
+     const [alltoy, setalltoy] = useState();
+     const [limit, setlimit] = useState(20);
+
+
+
+
+     useEffect(() => {
+          fetch(`http://localhost:5000/shop?&limit=${limit}`)
+               .then(res => res.json())
+               .then(data => setalltoy(data))
+     }, [limit])
+
+
+
+     const handlePriveteRoute = () => {
+          if (!user?.email) {
+               Swal.fire('You have to log in first to view details')
+          }
+     }
+
+
      return (
           <div>
                <h1 className=" text-4xl font-bold  text-blue-500 text-center my-4"> All Toy </h1>
                <div>
-                    <div className="overflow-x-auto w-full">
+                    <div className=" w-full">
                          <table className="table w-full">
                               {/* head */}
                               <thead>
@@ -36,9 +51,9 @@ const AllToy = () => {
                               </thead>
                               <tbody>
 
-                                   {alltoy?.map((product,index) => (
+                                   {alltoy?.map((product, index) => (
                                         <tr key={product._id}>
-                                             <td>{index+1}</td>
+                                             <td>{index + 1}</td>
 
                                              <td>
                                                   <div className="flex items-center space-x-3">
@@ -54,10 +69,10 @@ const AllToy = () => {
                                              <td>{product.category}</td>
                                              <td>{product.price}</td>
                                              <td>{product.quantity}</td>
-                                             <td ><Link onClick={handlePriveteRoute} to={`/shopdetils/${product._id}`}  className='  bg-blue-600 text-bs font-semibold text-white text-center py-1 px-3 rounded-lg my-2' > View Details  <FaArrowRight className=' inline-block mx-1'></FaArrowRight> </Link></td>
-                                            
-                                           
-                                             
+                                             <td ><Link onClick={handlePriveteRoute} to={`/shopdetils/${product._id}`} className='  bg-blue-600 text-bs font-semibold text-white text-center py-1 px-3 rounded-lg my-2' > View Details  <FaArrowRight className=' inline-block mx-1'></FaArrowRight> </Link></td>
+
+
+
 
                                         </tr>
                                    ))}
@@ -67,6 +82,10 @@ const AllToy = () => {
 
 
                          </table>
+                    </div>
+
+                    <div className=" text-center block mx-auto">
+                       { alltoy &&  alltoy?.length >=20 ? <button onClick={()=>setlimit(totalCar)} className={ `text-white ${ alltoy  && alltoy.length ==totalCar ? "hidden" : "block"} bg-blue-600   hover:bg-blue-400 px-3 py-1 rounded-md text-2xl font-semibold `} > See More</button > : "" }
                     </div>
                </div>
 

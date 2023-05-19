@@ -66,7 +66,7 @@ const Mytoy = () => {
                                         <div className="max-w-sm h-full bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg ">
 
                                              <div className="relative">
-                                                  <img className="w-full rounded-xl" src={toy?.image} alt="Colors" />
+                                                  <img className="w-full h-80 rounded-xl" src={toy?.image} alt="Colors" />
                                                   <p className="absolute top-0 bg-blue-500 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">${toy?.price }</p>
                                              </div>
                                              <h1 className="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">{toy?.name}</h1>

@@ -35,6 +35,7 @@ const AddToy = () => {
                      
                })    
                }
+               form.reset();
                   
           //   console.log(result);
 
