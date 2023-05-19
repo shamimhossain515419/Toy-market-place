@@ -3,13 +3,14 @@ import Main from "../Layout/Main";
 import Home from "../Component/Pages/Home/Home";
 import Login from "../User/Login";
 import Ragister from "../User/Ragister";
-import ShopDetils from "../Component/Pages/Home/ShopDetils";
+
 import PrivetRoute from "./PrivetRoute";
 import AddToy from "../PrivateToy/AddToy";
 import AllToy from "../Component/Pages/Home/AllToy";
 import Mytoy from "../PrivateToy/Mytoy";
 import Updatetoy from "../PrivateToy/Updatetoy";
 import ErrorPage from "../Component/Shared/ErrorPage";
+import ShopDetails from "../Component/Pages/Home/ShopDetils";
 
 
 
@@ -52,7 +53,7 @@ const router  = createBrowserRouter([
                     },
                     {
                     path:'/shopdetils/:id',
-                    element: <PrivetRoute> <ShopDetils></ShopDetils></PrivetRoute> ,
+                    element: <PrivetRoute> <ShopDetails></ShopDetails></PrivetRoute> ,
                     loader:({params})=> fetch(`https://toy-marketplace-server.vercel.app/shopdetils/${params.id}`)
                    
                   }

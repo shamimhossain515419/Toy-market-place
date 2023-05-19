@@ -30,21 +30,22 @@ const Mytoy = () => {
                confirmButtonText: 'Yes, delete it!'
              }).then((result) => {
                if (result.isConfirmed) {
-               fetch(`https://toy-marketplace-server.vercel.app/shop/${_id}`, {
+               fetch(`https://toy-marketplace-server.vercel.app/shopDelete/${_id}`, {
                method:"DELETE",
               }).then(res=>res.json())
               .then(data=>{
                console.log(data);
                 const findAllData=myAddToy.filter(pd=> pd._id !==_id)
                 sermyAddToy(findAllData)
+                if(data.deletedCount >0){
+                    Swal.fire(
+                         'Deleted!',
+                         'Your file has been deleted.',
+                         'success'
+                       )  
+                }
                })
-
-                 Swal.fire(
-                   'Deleted!',
-                   'Your file has been deleted.',
-                   'success'
-                 )
-               }
+            }
              })
 
            

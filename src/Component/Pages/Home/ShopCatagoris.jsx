@@ -13,7 +13,7 @@ const ShopCatagoris = () => {
           setSeletpage("truck")
      }
 
-     console.log(seletpage);
+     // console.log(seletpage);
      if (seletpage == 0) {
           setSeletpage("sportscar")
      }
@@ -22,7 +22,7 @@ const ShopCatagoris = () => {
 
           async function fetchData() {
                try {
-                    const response = await fetch(`http://localhost:5000/shop/${seletpage}`);
+                    const response = await fetch(`https://toy-marketplace-server.vercel.app/shop/${seletpage}`);
                     const data = await response.json();
                     serShopdata(data);
                } catch (error) {

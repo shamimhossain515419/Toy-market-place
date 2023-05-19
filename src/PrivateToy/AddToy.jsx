@@ -36,7 +36,7 @@ const AddToy = () => {
                })    
                }
                   
-            console.log(result);
+          //   console.log(result);
 
           });
 

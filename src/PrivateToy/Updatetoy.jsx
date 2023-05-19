@@ -22,7 +22,7 @@ const { _id,  name, price, email, sellername, rating, description, image, quanti
           const updateCar = { name, price, email, sellername, rating, description, image, quantity, category };
           console.log(updateCar);
 
-           fetch(`http://localhost:5000/shop/${_id}`,
+           fetch(`https://toy-marketplace-server.vercel.app/shop/${_id}`,
            {
                method:"PUT",
                headers:{

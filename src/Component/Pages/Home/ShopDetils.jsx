@@ -1,11 +1,12 @@
-import { FaArrowLeft, FaRegHandPointRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaArrowLeft,  FaRegHandPointRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Rating from "react-rating";
 import { Link, useLoaderData } from "react-router-dom";
 
 
-const ShopDetils = () => {
-     const loadData = useLoaderData();
-     const { name, price,  image, description, rating, category } = loadData;
+const ShopDetails = () => {
+     const loadData = useLoaderData()
+     
+     const { name, price, image, description, rating, category } = loadData;
 
      return (
           <div>
@@ -37,7 +38,7 @@ const ShopDetils = () => {
                                              placeholderSymbol={<FaStar className=' m-1 text-[#ece800]'></FaStar>}
                                              fullSymbol={<FaStarHalfAlt className=' m-1 text-[#ece800]'></FaStarHalfAlt>}
                                         />
-                                        <small className=' text-2xl font-semibold '> Rating: 3.4 </small>
+                                        <small className=' text-2xl font-semibold '> Rating: {rating} </small>
                                    </div>
 
                                    <button className='  bg-blue-600 text-2xl font-semibold text-white text-center py-1 px-3 rounded-lg my-2'> Buy New </button>
@@ -49,4 +50,4 @@ const ShopDetils = () => {
      );
 };
 
-export default ShopDetils;
+export default ShopDetails;
