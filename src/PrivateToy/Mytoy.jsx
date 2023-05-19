@@ -3,13 +3,14 @@ import { AuthContext } from "../AuthProvider/Authprovider";
 import { FaRegHandPointRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Rating from "react-rating";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const Mytoy = () => {
 
      const { user } = useContext(AuthContext);
      const [myAddToy, sermyAddToy] = useState([])
-     const URL = `http://localhost:5000/mytoy?email=${user.email}`
+     const URL = `https://toy-marketplace-server.vercel.app/shop?email=${user.email}`
      useEffect(() => {
           fetch(URL).then(res => res.json())
                .then(data => {
@@ -29,7 +30,7 @@ const Mytoy = () => {
                confirmButtonText: 'Yes, delete it!'
              }).then((result) => {
                if (result.isConfirmed) {
-               fetch(`http://localhost:5000/mytoy/${_id}`, {
+               fetch(`https://toy-marketplace-server.vercel.app/shop/${_id}`, {
                method:"DELETE",
               }).then(res=>res.json())
               .then(data=>{
@@ -95,7 +96,7 @@ const Mytoy = () => {
                                                   </div>
                                                   <div className=" flex gap-3 ">
                                                   <button onClick={()=>handleDelete(toy?._id)} className="mt-4 text-xl w-full text-white bg-red-500 py-2 rounded-xl shadow-lg">Delete</button>
-                                                  <button className="mt-4 text-xl w-full text-white bg-blue-500 py-2 rounded-xl shadow-lg">Update</button>
+                                                  <button className="mt-4 text-xl w-full text-white bg-blue-500 py-2 rounded-xl shadow-lg"><Link to={`/update/${toy?._id}`}>Update</Link></button>
                                                   </div>
                                              </div>
                                         </div>

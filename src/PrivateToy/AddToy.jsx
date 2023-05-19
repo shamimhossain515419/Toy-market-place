@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
      const { user } = useContext(AuthContext);
@@ -18,13 +19,25 @@ const AddToy = () => {
           const quantity = form.quantity.value;
           const car = { name, price, email, sellername, rating, description, image, quantity, category };
           console.log(car);
-          fetch('http://localhost:5000/shop', {
+          fetch('https://toy-marketplace-server.vercel.app/shop', {
                method: "POST",
                headers: { "Content-Type": "application/json" },
                body: JSON.stringify(car),
           }).then((res) => res.json())
           .then((result) => {
+               if(result){
+                    Swal.fire({
+                         position: 'top-end',
+                         icon: 'success',
+                         title: 'Your work has been Add',
+                         showConfirmButton: false,
+                         timer: 1500
+                     
+               })    
+               }
+                  
             console.log(result);
+
           });
 
      }

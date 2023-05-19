@@ -8,6 +8,8 @@ import PrivetRoute from "./PrivetRoute";
 import AddToy from "../PrivateToy/AddToy";
 import AllToy from "../Component/Pages/Home/AllToy";
 import Mytoy from "../PrivateToy/Mytoy";
+import Updatetoy from "../PrivateToy/Updatetoy";
+import ErrorPage from "../Component/Shared/ErrorPage";
 
 
 
@@ -15,6 +17,7 @@ const router  = createBrowserRouter([
             {
                path:'/',
                element:<Main></Main>,
+               errorElement:<ErrorPage></ErrorPage>,
                children:[
                     {
                     path:'/',
@@ -29,13 +32,18 @@ const router  = createBrowserRouter([
                     element:<Ragister></Ragister>
                     },
                     {
+                     path:'/update/:id',
+                     element:<Updatetoy></Updatetoy>,
+                     loader:({params})=> fetch(`https://toy-marketplace-server.vercel.app/shopdetils/${params.id}`)
+                    },
+                    {
                     path:'/addtoy',
                     element:<AddToy></AddToy>
                     },
                     {
                     path:'/alltoys',
                     element:<AllToy></AllToy>,
-                    loader:()=>fetch('http://localhost:5000/alltoy')
+                    loader:()=>fetch('https://toy-marketplace-server.vercel.app/shop')
                     },
                     {
                     path:'/mytoy',
@@ -45,7 +53,7 @@ const router  = createBrowserRouter([
                     {
                     path:'/shopdetils/:id',
                     element: <PrivetRoute> <ShopDetils></ShopDetils></PrivetRoute> ,
-                    loader:({params})=> fetch(`http://localhost:5000/shopdetils/${params.id}`)
+                    loader:({params})=> fetch(`https://toy-marketplace-server.vercel.app/shopdetils/${params.id}`)
                    
                   }
                ]
