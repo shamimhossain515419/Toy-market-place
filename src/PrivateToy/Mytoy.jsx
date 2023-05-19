@@ -4,6 +4,7 @@ import { FaRegHandPointRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Rating from "react-rating";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useTitle from "../Hooks/useTitle";
 
 
 const Mytoy = () => {
@@ -18,7 +19,7 @@ const Mytoy = () => {
                })
      }, [URL])
      // console.log(myAddToy);
-
+     useTitle("mytoy")
      const handleDelete=(_id)=>{
           Swal.fire({
                title: 'Are you sure?',

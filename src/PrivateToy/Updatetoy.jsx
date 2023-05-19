@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../Hooks/useTitle";
 
 
 const Updatetoy = () => {
      const [category, setCategory] = useState()
 const updateData=useLoaderData();
-// console.log(updateData);
+useTitle("updatetoy")
 const { _id,  name, price, email, sellername, rating, description, image, quantity}=updateData
      const handleSubmit = (event) => {
           event.preventDefault();

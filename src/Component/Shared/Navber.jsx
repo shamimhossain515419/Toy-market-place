@@ -30,7 +30,7 @@ const handlogout=()=>{
                          <div className=" md:flex gap-3  ">
                               <NavLink className={({ isActive }) => isActive ? " text-xl block  font-semibold m-3  text-blue-600" : " text-xl block font-semibold m-3 "} to={'/'}>Home</NavLink>
                               <NavLink className={({ isActive }) => isActive ? " text-xl block font-semibold m-3  text-blue-600" : " text-xl block font-semibold m-3 "} to={'/alltoys'}>All Toys</NavLink>
-                              <NavLink className={({ isActive }) => isActive ? " text-xl block  font-semibold m-3  text-blue-600" : " text-xl block font-semibold m-3 "} >Blogs</NavLink>
+                              <NavLink className={({ isActive }) => isActive ? " text-xl block  font-semibold m-3  text-blue-600" : " text-xl block font-semibold m-3 "} to={'/blog'}>Blogs</NavLink>
                          </div>
 
 

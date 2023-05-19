@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { FaArrowRight, FaSistrix } from "react-icons/fa";
+import { FaArrowRight,} from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/Authprovider";
 import Swal from "sweetalert2";
+import useTitle from "../../../Hooks/useTitle";
 
 
 const AllToy = () => {
@@ -11,7 +12,7 @@ const AllToy = () => {
      const { user } = useContext(AuthContext)
      const [alltoy, setalltoy] = useState();
      const [limit, setlimit] = useState(20);
-
+     useTitle("Alltoy");
      const [searchTerm, setSearchTerm] = useState('');
 
      const handleSearchChange = (event) => {
@@ -26,7 +27,7 @@ const AllToy = () => {
 
 
 const handleSearch=()=>{
-     fetch(`http://localhost:5000/toyCar/${searchTerm}`)
+     fetch(`https://toy-marketplace-server.vercel.app/toyCar/${searchTerm}`)
      .then(res => res.json())
      .then(data => setalltoy(data))
  }

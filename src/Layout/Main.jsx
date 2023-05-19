@@ -4,6 +4,7 @@ import Footer from "../Component/Shared/Footer";
 
 
 const Main = () => {
+  
       return (
           <div>
                <Navber></Navber>

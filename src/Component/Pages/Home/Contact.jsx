@@ -1,6 +1,13 @@
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const Contact = () => {
+     useEffect(() => {
+          AOS.init(); 
+        }, []);
+
      return (
           <div>
                 <div>
@@ -8,7 +15,7 @@ const Contact = () => {
                     <p className=" w-2/3 mx-auto my-9 text-bs font-medium mt-3 text-center"> We value your feedback and are always happy to assist you. If you have any questions, comments, or suggestions, please don not hesitate to reach out to us. Here are the various ways you can contact us:</p>
                </div>
           
-          <div className=" relative">
+          <div data-aos="zoom-in-right" className=" relative">
                 
              <div className=" flex justify-center items-center w-full  h-screen relative ">
              <img className="relative w-full  h-screen " src="https://images.pexels.com/photos/4934786/pexels-photo-4934786.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
@@ -22,7 +29,7 @@ const Contact = () => {
                               <div className="grow-0 shrink-0 basis-auto mb-6 md:mb-0 w-full md:w-6/12 px-3 lg:px-6">
                                    <h2 className="text-4xl font-bold mb-6">Contact us</h2>
                                    <p className="text-white text-bs mb-6">
-                                   I apologize, but as an AI language model, I don't have real-time access to specific contact information for businesses or organizations. However, I can provide you with a general template for contact information that you can customize according to your needs. Here's an 
+                                   I apologize, but as an AI language model, I don t have real-time access to specific contact information for businesses or organizations. However, I can provide you with a general template for contact information that you can customize according to your needs. Here's an 
                                    </p>
                                    <p className=" mb-2">Dhaka , 94126, Bangladesh</p>
                                    <p className=" mb-2">+ 01 234 567 89</p>

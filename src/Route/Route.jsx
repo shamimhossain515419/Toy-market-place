@@ -11,6 +11,7 @@ import Mytoy from "../PrivateToy/Mytoy";
 import Updatetoy from "../PrivateToy/Updatetoy";
 import ErrorPage from "../Component/Shared/ErrorPage";
 import ShopDetails from "../Component/Pages/Home/ShopDetils";
+import Blog from "../Component/Pages/Home/Blog";
 
 
 
@@ -49,7 +50,10 @@ const router  = createBrowserRouter([
                     {
                     path:'/mytoy',
                     element: <PrivetRoute><Mytoy></Mytoy></PrivetRoute> ,
-                    
+                    },
+                    {
+                    path:'/blog',
+                    element: <Blog></Blog>
                     },
                     {
                     path:'/shopdetils/:id',

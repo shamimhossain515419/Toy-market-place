@@ -17,7 +17,7 @@ const ShopCard = ({showcard}) => {
       
      const {name,price, _id ,image,sellername,rating,category}=showcard;
      return (
-          <div className=" m-2 p-1  shadow-md   rounded-md ">
+          <div  data-aos="fade-right"className=" m-2 p-1  shadow-md   rounded-md ">
                <div className=' p-2 items-center   mx-auto md:grid grid-cols-2  gap-5 my-4 '>
                               <div>
                                    <img className='   h-80   object-contain w-full' src={image} alt="" /></div>
