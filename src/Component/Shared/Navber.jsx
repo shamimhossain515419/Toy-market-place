@@ -2,16 +2,19 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/Authprovider";
+import Swal from "sweetalert2";
 const Navber = () => {
      const [acctive, SetAccticve] = useState(false);
      const { user, loading,LogOut } = useContext(AuthContext);
      const [logout,setlogout]=useState(true)
     const [display,serdisplay]=useState(false)
 const handlogout=()=>{
-     LogOut().then((result) => {
-         console.log(result);
+       LogOut().then((result) => {
+          console.log(result);
+          Swal.fire('logout success full')
         }).catch((error) => {
-          console.log(error);
+          // An error happened.
+          console.log(error.massage);
         });
 }
 

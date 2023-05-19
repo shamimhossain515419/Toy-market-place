@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link,  useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/Authprovider";
+import Swal from "sweetalert2";
 
 
 export default function Login() {
@@ -17,7 +18,9 @@ export default function Login() {
           const email = form.email.value;
 
           singin(email, password).then(result => {
-               console.log(result.user);
+               if(result.user){
+                    Swal.fire('Login  success full')
+                     }
                 navigate(from,  {replace: true} )
                 form.reset();
                
@@ -31,6 +34,9 @@ export default function Login() {
      const handeleGoolesng=()=>{
           GoogleSing().then(result=>{
                 console.log(result.user);
+                if(result.user){
+               Swal.fire('Google login success full')
+                }
                 navigate(from,  {replace: true} )
                 
           }).catch(error=>{

@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import { AuthContext,  } from "../AuthProvider/Authprovider";
 import { getAuth, updateProfile } from "firebase/auth";
 import app from "../Firebaseconfig/Firebase.confige";
+import Swal from "sweetalert2";
 
 
 export default function Ragister() {
@@ -19,11 +20,16 @@ const auth=getAuth(app);
                 console.log(result.user);
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photo
-                  }).then(() => {
-                    <Navigate to={'/'}></Navigate>
+                  }).then((result) => {
+                    console.log(result);
                   }).catch((error) => {
                     console.log(error);
                   });
+                  if(result){
+                    Swal.fire('Ragister success full')
+                  }
+                  from.reset();
+                <Navigate to={'/'}></Navigate>
           }).catch(error=>{
                console.log(error);
           })

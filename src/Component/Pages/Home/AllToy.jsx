@@ -10,10 +10,15 @@ const AllToy = () => {
 
      const { totalCar } = useLoaderData();
      const { user } = useContext(AuthContext)
-     const [alltoy, setalltoy] = useState();
+     const [alltoy, setalltoy] = useState([]);
      const [limit, setlimit] = useState(20);
      useTitle("Alltoy");
      const [searchTerm, setSearchTerm] = useState('');
+     const  handleSortAscending=()=>{
+          const sortdata= alltoy && alltoy?.sort((a, b) => a.price >b.price ? 1 : -1);
+          setalltoy(sortdata);
+          
+         }
 
      const handleSearchChange = (event) => {
        setSearchTerm(event.target.value);
@@ -31,14 +36,16 @@ const handleSearch=()=>{
      .then(res => res.json())
      .then(data => setalltoy(data))
  }
+// 
+ 
 
-     const handlePriveteRoute = () => {
+ const handlePriveteRoute = () => {
           if (!user?.email) {
                Swal.fire('You have to log in first to view details')
           }
      }
 
-
+ 
      return (
           <div>
                <h1 className=" text-4xl font-bold  text-blue-500 text-center my-4"> All Toy </h1>
@@ -49,15 +56,19 @@ const handleSearch=()=>{
                                    type="text"
                                    placeholder="Search"
                                      
-                                   value={searchTerm}
+                                   
                                    onChange={handleSearchChange}
                                    className="px-4 py-2 w-1/3 mx-auto my-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                               />
                               <button onClick={handleSearch} className=" text-xl font-bold bg-blue-500 py-1 mx-2 cursor-pointer px-3 rounded-md " > Search</button> 
                          </div>
-
+                           
                     </div>
                     <div className=" w-full">
+                         <div className=" flex justify-end mt-6 mb-2 items-center">
+                         <button onClick={handleSortAscending} className="btn btn-primary ">Ascending</button>
+                            
+                         </div>
                          <table className="table w-full">
                               {/* head */}
                               <thead>
