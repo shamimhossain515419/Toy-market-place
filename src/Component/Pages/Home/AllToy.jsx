@@ -95,11 +95,11 @@ const handleSearch=()=>{
 
                                                   </div>
                                              </td>
-                                             <td>{product.sellername}</td>
-                                             <td>{product.name}</td>
-                                             <td>{product.category}</td>
-                                             <td>{product.price}</td>
-                                             <td>{product.quantity}</td>
+                                             <td>{product?.sellername}</td>
+                                             <td>{product?.name}</td>
+                                             <td>{product?.category}</td>
+                                             <td>{product?.price}</td>
+                                             <td>{product?.quantity}</td>
                                              <td ><Link onClick={handlePriveteRoute} to={`/shopdetils/${product._id}`} className='  bg-blue-600 text-bs font-semibold text-white text-center py-1 px-3 rounded-lg my-2' > View Details  <FaArrowRight className=' inline-block mx-1'></FaArrowRight> </Link></td>
 
 
