@@ -11,7 +11,7 @@ const AddToy = () => {
           event.preventDefault();
           const form = event.target;
           const name = form.title.value;
-          const price = form.price.value;
+          const price = parseFloat(form.price.value);
           const email = form.email.value;
           const sellername = form.sellername.value;
           const rating = form.rating.value;
