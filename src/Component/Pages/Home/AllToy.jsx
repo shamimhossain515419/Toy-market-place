@@ -34,16 +34,7 @@ const handleSearch=()=>{
      .then(data => setalltoy(data))
  }
 //  sorting 
-const handleacending=()=>{
-     fetch(`https://toy-marketplace-server.vercel.app/shopsort/ascending`)
-     .then(res => res.json())
-     .then(data => setalltoy(data))
-}
-const handledecending=()=>{
-     fetch(`https://toy-marketplace-server.vercel.app/shopsort/descending`)
-     .then(res => res.json())
-     .then(data => setalltoy(data))
-}
+
 
  
 
@@ -73,11 +64,7 @@ const handledecending=()=>{
                            
                     </div>
                     <div className=" w-full">
-                         <div className=" flex justify-end mt-6 mb-2 items-center">
-                         <button onClick={handleacending} className="btn btn-primary mx-2">Ascending</button>
-                         <button onClick={handledecending} className="btn btn-primary  mx-2">descending</button>
-                            
-                         </div>
+                         
                          <table className="table w-full">
                               {/* head */}
                               <thead>
