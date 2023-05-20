@@ -73,7 +73,7 @@ const handledecending=()=>{
                             
                          </div>
                       </div>
-               <div className="min-h-screen   flex justify-center  py-20">
+               <div className="min-h-[10vh] flex justify-center  py-20">
                      
                <table className="table w-full">
                               {/* head */}
