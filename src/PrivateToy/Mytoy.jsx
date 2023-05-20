@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/Authprovider";
-import { FaRegHandPointRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
-import Rating from "react-rating";
+import { FaRegEdit, FaTrashAlt,  } from "react-icons/fa";
+// import Rating from "react-rating";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useTitle from "../Hooks/useTitle";
@@ -52,63 +52,71 @@ const Mytoy = () => {
            
            console.log(_id);
      }
-
+     // const handlePriveteRoute = () => {
+     //      if (!user?.email) {
+     //           Swal.fire('You have to log in first to view details')
+     //      }
+     // }
      return (
           <div>
 
 
                <div className="min-h-screen   flex justify-center items-center py-20">
 
-                    <div className="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 items-center   justify-center space-y-4 md:space-y-0">
+               <table className="table w-full">
+                              {/* head */}
+                              <thead>
+                                   <tr>
 
-                         {
-                              myAddToy?.map(toy => (
-                                   <div key={toy._id}>
-                                        <div className="max-w-sm h-full bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg ">
+                                        <th className="py-2 px-4 border-b">ID</th>
+                                        <th className="py-2 px-4 border-b">Image</th>
+                                        <th className="py-2 px-4 border-b">Seller</th>
+                                        <th className="py-2 px-4 border-b">Toy Name</th>
+                                        <th className="py-2 px-4 border-b">Sub-category</th>
+                                        <th className="py-2 px-4 border-b">Price</th>
+                                        <th className="py-2 px-4 border-b">Quantity</th>
+                                        <th className="py-2 px-4 border-b">Action</th>
+                                   </tr>
+                              </thead>
+                              <tbody>
 
-                                             <div className="relative">
-                                                  <img className="w-full h-80 rounded-xl" src={toy?.image} alt="Colors" />
-                                                  <p className="absolute top-0 bg-blue-500 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">${toy?.price }</p>
-                                             </div>
-                                             <h1 className="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">{toy?.name}</h1>
-                                             <div className="my-4">
-                                                  <div className="flex space-x-1 items-center">
-                                                       <p className=' text-lg '>   {toy?.description} </p>
+                                   {myAddToy?.map((product, index) => (
+                                        <tr key={product._id}>
+                                             <td>{index + 1}</td>
+
+                                             <td>
+                                                  <div className="flex items-center space-x-3">
+
+                                                       <div className="mask  rounded  w-16 h-16">
+                                                            <img  src={product.image} className=" rounded w-full h-full " alt="Avatar  Tailwind CSS Component" />
+                                                       </div>
 
                                                   </div>
-                                                  <div className="flex space-x-1 items-center">
-                                                       <FaRegHandPointRight className=' text-blue-600'></FaRegHandPointRight>
-                                                       <p className='  font-semibold '>Category: {toy?.category} </p>
-                                                  </div>
-                                                  <div className="flex space-x-1 items-center">
-                                                       <FaRegHandPointRight className=' text-blue-600'></FaRegHandPointRight>
-                                                       <p className='  font-semibold '>Quantity: {toy?.quantity}  </p>
-                                                  </div>
+                                             </td>
+                                             <td>{product.sellername}</td>
+                                             <td>{product.name}</td>
+                                             <td>{product.category}</td>
+                                             <td>{product.price}</td>
+                                             <td>{product.quantity}</td>
+                                             <td >
+                                                   <div className=" flex gap-5">
+                                                   <FaTrashAlt onClick={()=>handleDelete(product._id)} className="text-2xl cursor-pointer text-red-600"></FaTrashAlt>
+                                                  <Link  to={`/update/${product._id}`} className=' text-blue-500 text-2xl ' >  <FaRegEdit></FaRegEdit></Link>
+                                                   </div>
+                                                  
+                                              </td>
 
 
 
-                                                  <div className=' md:flex justify-between gap-1  items-center'>
-                                                       <Rating
-                                                            placeholderRating={toy?.rating}
-                                                            emptySymbol={<FaStar className='m-1  text-[#ece800]'></FaStar>}
-                                                            placeholderSymbol={<FaStar className=' m-1 text-[#ece800]'></FaStar>}
-                                                            fullSymbol={<FaStarHalfAlt className=' m-1 text-[#ece800]'></FaStarHalfAlt>}
-                                                       />
-                                                       <small className=' text-2xl font-semibold '> Rating: {toy?.rating} </small>
-                                                  </div>
-                                                  <div className=" flex gap-3 ">
-                                                  <button onClick={()=>handleDelete(toy?._id)} className="mt-4 text-xl w-full text-white bg-red-500 py-2 rounded-xl shadow-lg">Delete</button>
-                                                  <button className="mt-4 text-xl w-full text-white bg-blue-500 py-2 rounded-xl shadow-lg"><Link to={`/update/${toy?._id}`}>Update</Link></button>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              ))
-                         }
 
-                         
+                                        </tr>
+                                   ))}
 
-                    </div>
+
+                              </tbody>
+
+
+                         </table>
                </div>
           </div>
      );

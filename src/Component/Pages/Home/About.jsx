@@ -20,8 +20,8 @@ const About = () => {
                <div  className="hero  min-h-[80vh] ">
                     <div className=" grid md:grid-cols-2 gap-4  ">
                          <div data-aos="flip-left"   className=" ">
-                              <h1 className=" text-4xl font-semibold text-blue-500  my-3">Off-Road King </h1>
-                              <p className=" w-4/5  text-[#030303a9] text-xl font-medium my-5 p-1">he About section provides an overview and essential information about a person, organization, company, or website. It serves as a concise introduction that gives readers a clear understanding of the entity s purpose, values, history, and goals.
+                              <h1 className=" text-4xl text-center md:text-start  font-semibold text-blue-500  my-3">Off-Road King </h1>
+                              <p className=" text-center md:w-4/5  text-[#030303a9] text-xl font-medium my-5 p-1">he About section provides an overview and essential information about a person, organization, company, or website. It serves as a concise introduction that gives readers a clear understanding of the entity s purpose, values, history, and goals.
 
                              In an About section, you can typically find a brief description of the entity s background, including its founding date, location, and any significant milestones or achievements. It may also highlight the mission or vision of the entity, outlining its core values and objectives..</p>
                            </div>

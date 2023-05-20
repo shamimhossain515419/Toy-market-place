@@ -11,14 +11,11 @@ const AllToy = () => {
      const { totalCar } = useLoaderData();
      const { user } = useContext(AuthContext)
      const [alltoy, setalltoy] = useState([]);
+  
      const [limit, setlimit] = useState(20);
      useTitle("Alltoy");
      const [searchTerm, setSearchTerm] = useState('');
-     const  handleSortAscending=()=>{
-          const sortdata= alltoy && alltoy?.sort((a, b) => a.price >b.price ? 1 : -1);
-          setalltoy(sortdata);
-          
-         }
+     
 
      const handleSearchChange = (event) => {
        setSearchTerm(event.target.value);
@@ -36,7 +33,18 @@ const handleSearch=()=>{
      .then(res => res.json())
      .then(data => setalltoy(data))
  }
-// 
+//  sorting 
+const handleacending=()=>{
+     fetch(`https://toy-marketplace-server.vercel.app/shopsort/ascending`)
+     .then(res => res.json())
+     .then(data => setalltoy(data))
+}
+const handledecending=()=>{
+     fetch(`https://toy-marketplace-server.vercel.app/shopsort/descending`)
+     .then(res => res.json())
+     .then(data => setalltoy(data))
+}
+
  
 
  const handlePriveteRoute = () => {
@@ -66,7 +74,8 @@ const handleSearch=()=>{
                     </div>
                     <div className=" w-full">
                          <div className=" flex justify-end mt-6 mb-2 items-center">
-                         <button onClick={handleSortAscending} className="btn btn-primary ">Ascending</button>
+                         <button onClick={handleacending} className="btn btn-primary mx-2">Ascending</button>
+                         <button onClick={handledecending} className="btn btn-primary  mx-2">descending</button>
                             
                          </div>
                          <table className="table w-full">
@@ -94,7 +103,7 @@ const handleSearch=()=>{
                                                   <div className="flex items-center space-x-3">
 
                                                        <div className="mask  rounded  w-16 h-16">
-                                                            <img src={product.image} className=" rounded " alt="Avatar  Tailwind CSS Component" />
+                                                            <img src={product.image} className=" w-full h-full rounded " alt="Avatar  Tailwind CSS Component" />
                                                        </div>
 
                                                   </div>
