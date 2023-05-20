@@ -50,21 +50,30 @@ const Mytoy = () => {
              })
      }
     
-
+const handleacending=()=>{
+      fetch(`https://toy-marketplace-server.vercel.app/sorting/acending?email=${user.email}`)
+        .then(res=>res.json())
+        .then(data=>sermyAddToy(data))
+     }
+const handledecending=()=>{
+     fetch(`https://toy-marketplace-server.vercel.app/sorting/decending?email=${user.email}`)
+     .then(res=>res.json())
+     .then(data=>sermyAddToy(data))
+}
 
      return (
 
           <div>
 
                  <h1 className=" text-5xl  text-center font-medium my-5 text-blue-500  "> My Toy </h1>
-                 {/* <div>
+                 <div>
                       <div className=" flex justify-end mt-6 mb-2 items-center">
                          <button onClick={handleacending} className="btn btn-primary mx-2">Ascending</button>
                          <button onClick={handledecending} className="btn btn-primary  mx-2">descending</button>
                             
                          </div>
-                      </div> */}
-               <div className="min-h-screen   flex justify-center items-center py-20">
+                      </div>
+               <div className="min-h-screen   flex justify-center  py-20">
                      
                <table className="table w-full">
                               {/* head */}

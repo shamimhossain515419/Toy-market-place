@@ -32,6 +32,12 @@ const auth=getAuth(app);
                 <Navigate to={'/'}></Navigate>
           }).catch(error=>{
                console.log(error);
+               Swal.fire({
+                icon: 'error',
+                title: 'Authontication Error',
+                text: `${error.massage}`,
+                footer: '<a href="">Why do I have this issue?</a>'
+              })
           })
            
      }

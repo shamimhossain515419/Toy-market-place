@@ -27,6 +27,12 @@ export default function Login() {
 
           }).catch(error => {
                console.log(error);
+               Swal.fire({
+                    icon: 'error',
+                    title: 'Authontication Error',
+                    text: `${error.massage}`,
+                    footer: '<a href="">Why do I have this issue?</a>'
+                  })
           })
 
      }
