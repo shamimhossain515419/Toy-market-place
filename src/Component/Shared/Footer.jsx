@@ -16,9 +16,9 @@ const Footer = () => {
                               <Link target="blanck" to={'https://www.facebook.com/Shamim515419'}>
                               <FaFacebook className="text-blue-500 text-3xl m-2"></FaFacebook>
                                </Link>
-                               <FaTwitter className=" text-blue-500 text-3xl  m-2"></FaTwitter>
-                               <FaInstagram className="  text-purple-700 text-3xl  m-2"></FaInstagram>
-                               <FaYoutube className=" text-red-600 text-3xl  m-2"></FaYoutube>
+                               <FaTwitter className="  cursor-pointer text-blue-500 text-3xl  m-2"></FaTwitter>
+                               <FaInstagram className="  cursor-pointer text-purple-700 text-3xl  m-2"></FaInstagram>
+                               <FaYoutube className=" cursor-pointer text-red-600 text-3xl  m-2"></FaYoutube>
                              </div>
                          </div>
                          <div>

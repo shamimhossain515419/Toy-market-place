@@ -6,7 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const ShopDetails = () => {
      const loadData = useLoaderData()
      
-     const { name, price, image, description, rating, category } = loadData;
+     const { name, price,  image, description, rating, category,sellername } = loadData;
 
      return (
           <div>
@@ -22,7 +22,8 @@ const ShopDetails = () => {
                               <div className=' space-y-3 '>
                                    <h1 className='text-3xl font-semibold text-blue-600 '> {name}</h1>
                                    <p className=' text-lg '>{description}</p>
-
+                                   <p className=' text-xl font-medium '>SellerName:  {sellername}</p>
+                              
                                    <div className=' text-2xl  flex  items-center  gap-2' >
                                         <FaRegHandPointRight className=' text-blue-600'></FaRegHandPointRight>
                                         <p className=' text-2xl font-semibold '>Category: {category} </p>
